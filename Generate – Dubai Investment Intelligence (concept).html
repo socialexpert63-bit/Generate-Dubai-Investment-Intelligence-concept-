@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Generate – Dubai Investment Intelligence (concept)</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700&family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#ebe8e0;--surf:#f8f6f1;--ink:#0b1730;--mute:#5d677c;--line:#d5d0c3;--gold:#9a6f1e;--goldb:#d9ac55;--navy:#08142b;--pos:#26734f;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#060e1e;--surf:#0d1a33;--ink:#edeff4;--mute:#8d99b0;--line:#1c2d4d;--gold:#d9ac55;--pos:#5cc08c}}
+:root[data-theme="dark"]{--bg:#060e1e;--surf:#0d1a33;--ink:#edeff4;--mute:#8d99b0;--line:#1c2d4d;--gold:#d9ac55;--pos:#5cc08c}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px)}*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.6 Manrope,system-ui,sans-serif;min-height:100%}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:500;letter-spacing:-.015em;margin:0}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--navy);display:flex;align-items:center;gap:18px;padding:13px 32px;flex-wrap:wrap}
+.logo{font:700 22px Fraunces,serif;color:#fff;margin-right:auto;text-decoration:none}.logo i{color:var(--goldb)}
+nav{display:flex;gap:2px;flex-wrap:wrap}nav a{color:#aab5cb;text-decoration:none;font-size:14px;font-weight:600;padding:7px 14px;border-radius:99px}
+nav a:hover{color:#fff}nav a.on{background:var(--goldb);color:#08142b}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--goldb);outline-offset:2px}
+.tag{background:#161f33;color:#c9d0de;font-size:12.5px;padding:7px 32px;text-align:center}
+section[data-v]{display:none}section.show{display:block;animation:in .4s ease}@keyframes in{from{opacity:0}to{opacity:1}}
+.wrap{max-width:1120px;margin:0 auto;padding:44px 24px}
+.hero{background:radial-gradient(900px 400px at 75% 0,#17305c 0,transparent 70%),var(--navy);color:#fff;padding:60px 24px 0}
+.hero .in{max-width:1120px;margin:0 auto}.hero h1{font-size:clamp(36px,6vw,68px);line-height:1.04;max-width:12em}
+.hero p{color:#aab5cb;max-width:36em;font-size:18px;margin:18px 0 26px}
+.btn{display:inline-block;border:0;border-radius:99px;padding:13px 24px;font:700 14px Manrope,sans-serif;cursor:pointer;text-decoration:none;transition:transform .15s,box-shadow .2s}
+.btn:hover{box-shadow:0 6px 22px rgba(217,172,85,.35)}.btn:active{transform:scale(.97)}
+.gold{background:var(--goldb);color:#08142b}.ghost{background:none;color:#fff;border:1px solid #4a5a7d;margin-left:8px}
+.toggle{display:inline-flex;background:#13223f;border-radius:99px;padding:4px;margin:38px 0 6px}
+.toggle button{border:0;background:none;color:#aab5cb;font:700 13px Manrope;padding:8px 16px;border-radius:99px;cursor:pointer}.toggle .on{background:var(--goldb);color:#08142b}
+#sky{width:100%;display:block;overflow:visible}
+.tw{transform-box:fill-box;transform-origin:bottom;transition:transform .8s cubic-bezier(.2,.8,.2,1),opacity .2s;cursor:pointer}
+.tw:hover,.tw.on{opacity:1}.tw{opacity:.82}
+.info{background:#0e1d3a;border-top:1px solid #1e3157;color:#fff}
+.info .in{max-width:1120px;margin:0 auto;padding:20px 24px;display:flex;gap:30px;flex-wrap:wrap;align-items:center}
+.info b{font:500 22px Fraunces,serif}.info small{display:block;color:#8d99b0;font-size:12.5px}.info .v{font:600 26px Manrope;color:var(--goldb)}
+h2{font-size:clamp(26px,3.4vw,40px);line-height:1.1;margin-bottom:12px}.sub{color:var(--mute);max-width:40em;margin:0 0 28px}
+.split{display:grid;gap:34px;grid-template-columns:1fr 1fr;align-items:start}
+.lead{border-left:3px solid var(--gold);padding-left:18px;font:500 22px/1.35 Fraunces,serif;max-width:20em}
+.steps{counter-reset:s;display:grid;gap:0;border-top:1px solid var(--line)}
+.steps div{counter-increment:s;padding:16px 0 16px 46px;border-bottom:1px solid var(--line);position:relative}
+.steps div:before{content:counter(s);position:absolute;left:0;top:14px;width:30px;height:30px;border-radius:50%;background:var(--navy);color:var(--goldb);display:grid;place-items:center;font:700 13px Manrope}
+.steps b{display:block}.steps span{color:var(--mute);font-size:14.5px}
+.card{background:var(--surf);border:1px solid var(--line);border-radius:6px;padding:22px}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.big{font:600 28px Fraunces,serif;color:var(--gold)}.card p{margin:0;color:var(--mute);font-size:14px}
+.row{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:16px}
+label{display:flex;flex-direction:column;gap:5px;font-size:13px;font-weight:700;flex:1;min-width:150px}
+input,select{font:500 15px Manrope;padding:10px 12px;border:1px solid var(--line);border-radius:6px;background:var(--surf);color:var(--ink)}
+input[type=range]{padding:0;accent-color:#9a6f1e}.chk{flex-direction:row;align-items:center;gap:7px;font-weight:600;flex:0 0 auto;min-width:0;background:var(--surf);border:1px solid var(--line);padding:8px 14px;border-radius:99px}
+.scroll{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:14px;min-width:540px}
+th,td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--line)}th{color:var(--mute);font-weight:600}
+.bar{height:8px;border-radius:4px;background:var(--gold);transition:width .6s;margin-bottom:12px}.bar.n{background:#8d99b0}
+.note{font-size:12.5px;color:var(--mute);margin-top:14px}.err{color:#c0392b;font-size:12px;min-height:16px}
+.bub{cursor:pointer;transition:r .3s}.bub:hover{opacity:.8}
+.paper{background:#fff;color:#0b1730;max-width:780px;margin:24px auto;box-shadow:0 14px 44px rgba(0,0,0,.25)}
+.pc{background:var(--navy);color:#fff;padding:54px 40px}.pc h3{font-size:34px;margin:8px 0}.pc span{color:var(--goldb);font-size:13px;font-weight:700}
+.pb{padding:26px 40px 34px}.pb h4{font:600 17px Fraunces;color:#9a6f1e;margin:20px 0 4px}.pb p{margin:0;font-size:14.5px}
+footer{text-align:center;color:var(--mute);font-size:13px;padding:10px 24px 44px}
+@media (max-width:760px){header{padding:12px 16px}.split{grid-template-columns:1fr}.wrap{padding:32px 16px}.pc,.pb{padding-left:22px;padding-right:22px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.pipe{margin:22px 0;display:grid;gap:0}
+.ps{display:flex;gap:14px;padding:12px 0 12px 4px;position:relative;align-items:flex-start}
+.ps:not(:last-child):before{content:"";position:absolute;left:14px;top:38px;bottom:-12px;width:2px;background:var(--line)}
+.dot{width:22px;height:22px;border-radius:50%;border:2px solid var(--line);flex:none;margin-top:2px;background:var(--surf)}
+.ps.run .dot{border-color:var(--goldb);animation:pl 1s infinite}.ps.done .dot{background:var(--pos);border-color:var(--pos)}.ps.fail .dot{background:#c0392b;border-color:#c0392b}
+@keyframes pl{50%{box-shadow:0 0 0 7px rgba(217,172,85,.25)}}
+.ps b{display:block;font-size:15px}.ps span{color:var(--mute);font-size:13.5px}
+textarea{font:500 15px/1.5 Manrope;padding:12px;border:1px solid var(--line);border-radius:6px;background:var(--surf);color:var(--ink);resize:vertical;width:100%}
+.out{white-space:pre-wrap;font-size:14.5px;margin:0}.score{font:600 44px Fraunces,serif;color:var(--gold)}
+.info .in{display:grid;grid-template-columns:minmax(0,1.6fr) repeat(3,auto) auto;gap:12px 36px;align-items:center}
+.info .in #ans{grid-column:1/-1}.info .in .btn{white-space:nowrap}
+#sky .tw{cursor:pointer}#sky .tw:hover rect{filter:brightness(1.18)}
+@media (max-width:760px){.info .in{grid-template-columns:1fr 1fr}.info .in>div:first-child{grid-column:1/-1}.info .in .btn{grid-column:1/-1}}
+.pc2{padding:0;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,border-color .2s}.pc2:hover{transform:translateY(-3px);border-color:var(--gold)}
+.pc2 .bd{padding:16px 18px 18px;display:grid;gap:6px}.pc2 h3{font-size:19px}.mt{display:flex;gap:16px;font-size:13px;color:var(--mute);flex-wrap:wrap}.mt b{color:var(--ink)}
+.sm{padding:8px 14px;font-size:13px}.out2{background:none;color:var(--ink);border:1px solid var(--line)}.out2.on{background:var(--goldb);color:#08142b;border-color:var(--goldb)}
+#dm{position:fixed;inset:0;background:rgba(4,9,20,.72);z-index:20;display:none;align-items:center;justify-content:center;padding:18px}#dm.open{display:flex;animation:in .25s}
+#dm .box{background:var(--surf);border-radius:8px;max-width:640px;width:100%;max-height:90vh;overflow:auto}#dm .bd{padding:22px}
+.feat{display:block;text-decoration:none;color:inherit;transition:border-color .2s,transform .2s}.feat:hover{border-color:var(--gold);transform:translateY(-3px)}.feat h3{font-size:19px;margin-bottom:6px}
+.cta{background:var(--navy);color:#fff;border-radius:8px;padding:46px 30px;text-align:center;margin-top:44px}.cta h2{max-width:16em;margin:0 auto 18px}
+.fl{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:10px}.fl a{color:var(--mute);text-decoration:none;font-weight:600}.fl a:hover{color:var(--gold)}
+.logo{display:flex;align-items:center;gap:11px;line-height:1.05}.logo small{display:block;font:500 11px Manrope,sans-serif;color:#8d99b0;letter-spacing:.02em;margin-top:3px}
+.hrow{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin:40px 0 10px}.hrow .toggle{margin:0}.hint{color:#8d99b0;font-size:13.5px}
+.toggle button:focus-visible{outline-offset:-3px;outline-color:#fff}.toggle button{transition:background .2s,color .2s}
+.tl{animation:twk 5s ease-in-out infinite;pointer-events:none}@keyframes twk{0%,100%{opacity:.25}50%{opacity:.95}}
+.hero h1{text-wrap:balance}
+#cp{position:fixed;inset:0;background:rgba(4,9,20,.72);z-index:30;display:none;align-items:flex-start;justify-content:center;padding:12vh 18px}#cp.open{display:flex;animation:in .2s}
+#cp .box{background:var(--surf);border-radius:8px;width:100%;max-width:560px;overflow:hidden}#cp input{width:100%;border:0;border-bottom:1px solid var(--line);border-radius:0;padding:16px 18px;font-size:17px}
+#cp ul{list-style:none;margin:0;padding:6px;max-height:50vh;overflow:auto}#cp li{padding:10px 12px;border-radius:6px;cursor:pointer;display:flex;justify-content:space-between;gap:10px}#cp li.on{background:var(--goldb);color:#08142b}#cp li small{opacity:.7}
+.sb{background:#13223f;color:#c9d0de;border:1px solid #2c3e63;border-radius:99px;padding:7px 14px;font:600 13px Manrope;cursor:pointer}.sb kbd{font:600 11px Manrope;background:#08142b;border-radius:4px;padding:1px 6px;margin-left:6px;color:#aab5cb}
+.trk{position:relative;height:10px;background:var(--line);border-radius:5px;margin:6px 0 16px}.trk i{position:absolute;top:0;height:10px;border-radius:5px}.trk u{position:absolute;left:50%;top:-4px;bottom:-4px;width:2px;background:var(--ink)}
+.chk{align-self:flex-end}.pc2 svg{transition:transform .5s}.pc2:hover svg{transform:scale(1.04)}.pc2{overflow:hidden}
+.rgrid{display:grid;grid-template-columns:1fr 2fr;gap:18px;align-items:start}.rside{background:var(--navy);color:#fff;border-radius:6px;padding:28px}.rside ul{padding-left:18px;color:#c9d0de}.rside li{margin:9px 0}
+.fh{font-size:18px;margin:0 0 12px}.fh:not(:first-child){margin-top:8px}.seg{display:flex;flex-wrap:wrap;gap:6px;align-items:center}.seg p{flex-basis:100%;margin:0 0 2px;font:700 13px Manrope;color:var(--ink)}
+.seg button{border:1px solid var(--line);background:var(--surf);color:var(--ink);border-radius:99px;padding:8px 14px;font:600 13px Manrope;cursor:pointer;transition:background .2s}.seg button.on{background:var(--goldb);border-color:var(--goldb);color:#08142b}
+.paper{color:#0b1730}.paper .pb p{margin:6px 0;font-size:14.5px;color:#0b1730}.pb td,.pb th{color:#0b1730;border-color:#e3dfd3;font-size:14px}.pb table{min-width:0}.pb th{width:38%;color:#5d677c}
+.kp{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.kp div{border:1px solid #e3dfd3;padding:10px 12px;border-radius:4px}.kp small{display:block;color:#5d677c;font-size:12px}.kp b{font:600 20px Fraunces,serif}
+.sl{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.sl>div{border:1px solid #e3dfd3;border-radius:4px;overflow:hidden;font-size:13px}.sl p{padding:8px 10px!important;font-size:13px!important}
+.chip{display:inline-block;background:#f0e6cf;border-radius:99px;padding:3px 12px;font-size:13px;margin:2px 4px 2px 0;font-weight:700}.paper ul{padding-left:18px;margin:4px 0;font-size:14.5px}
+@media (max-width:860px){.rgrid{grid-template-columns:1fr}}@media (max-width:640px){.kp,.sl{grid-template-columns:1fr}}
+@media print{header,.tag,footer,.np,#rf,.rgrid,#cp,#dm,[data-v="report"] h2,[data-v="report"] .sub{display:none!important}body{background:#fff}.wrap{padding:0}.paper{box-shadow:none;margin:0;max-width:none}.paper *{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+.ag{display:grid;grid-template-columns:1.4fr 1fr;gap:18px;align-items:start}@media (max-width:860px){.ag{grid-template-columns:1fr}}.chp{display:inline-block;background:var(--goldb);color:#08142b;border-radius:99px;padding:3px 12px;font-size:13px;font-weight:700;margin:3px 4px 0 0}
+</style>
+</head>
+<body>
+<header><a class="logo" href="#home" aria-label="Generate home"><svg viewBox="0 0 48 48" width="42" height="42" style="color:#fff;flex:none"><defs><linearGradient id="lgh" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f2cf86"/><stop offset="1" stop-color="#b8862f"/></linearGradient></defs>
+<path d="M38.55 11.79A19 19 0 1 0 43 24" fill="none" stroke="url(#lgh)" stroke-width="3.6" stroke-linecap="round"/>
+<rect x="15" y="22" width="5.5" height="11" rx="1" fill="currentColor" opacity=".72"/>
+<rect x="22.5" y="12" width="5.5" height="21" rx="1" fill="url(#lgh)"/>
+<rect x="30" y="18" width="5.5" height="15" rx="1" fill="currentColor" opacity=".72"/>
+<rect x="12" y="34.5" width="26" height="1.6" rx=".8" fill="currentColor" opacity=".4"/></svg><span>Generate<i>.</i><small>Dubai Investment Intelligence</small></span></a>
+<nav id="nav"><a href="#home">Skyline</a><a href="#market">Market</a><a href="#explore">Explore</a><a href="#compare">Compare</a><a href="#calc">Calculator</a><a href="#portfolio">Portfolio</a><a href="#auto">AI automation</a><a href="#report">Investor report</a></nav><button class="sb" id="sb" aria-label="Search">Search<kbd id="kb">Ctrl K</kbd></button></header>
+<div class="tag">Independent concept prototype · all figures, properties and reports are fictional and illustrative, not Generate data or verified market data</div>
+
+<section data-v="home">
+<div class="hero"><div class="in">
+<h1>Dubai isn’t one market. Every building is its own.</h1>
+<p>Generate turns Dubai’s noise into a clear, property-by-property view, so international investors can decide with data instead of averages.</p>
+<a class="btn gold" href="#report">Get your investor report</a><a class="btn ghost" href="#market">Explore market insights</a><br>
+<div class="hrow"><div class="toggle" id="tg"><button class="on" data-m="p">Price per sq ft</button><button data-m="y">Net rental yield</button></div><span class="hint">Hover or tap a tower. Fictional properties.</span></div>
+<svg id="sky" viewBox="0 -12 900 372" role="img" aria-label="Interactive skyline of fictional properties"></svg>
+</div>
+<div class="info"><div class="in"><div style="flex:1;min-width:200px"><b id="in1">Select a tower</b><small id="in2">Each tower is a fictional property. Switch the metric and watch the skyline reshape.</small></div>
+<div><small>Price / sq ft</small><span class="v" id="i3">–</span></div><div><small>Net yield</small><span class="v" id="i4">–</span></div><div><small>Price</small><span class="v" id="i5">–</span></div><button class="btn gold" id="ask">Ask the AI analyst</button><p id="ans" style="flex-basis:100%;margin:0;color:#c9d0de;font-size:14.5px"></p></div></div></div>
+<div class="wrap"><div class="split"><div><p class="lead">Two towers on the same street can deliver very different returns.</p></div>
+<div class="steps"><div><b>Define your goals</b><span>Budget, horizon, income or growth.</span></div><div><b>Explore the market</b><span>Areas, pricing and yield side by side.</span></div><div><b>Compare properties</b><span>Up to three, with transparent assumptions.</span></div><div><b>Receive your report</b><span>A personalized research-style investor report.</span></div></div></div></div>
+<div class="wrap" style="padding-top:0"><h2>Everything an international investor needs</h2><p class="sub">Six tools, one clear view of each property.</p>
+<div class="grid"><a class="card feat" href="#market"><h3>Market intelligence</h3><p>Compare areas by price, yield and volume.</p></a><a class="card feat" href="#explore"><h3>Property discovery</h3><p>Filter, save and inspect listings.</p></a><a class="card feat" href="#compare"><h3>Side-by-side comparison</h3><p>Three properties, transparent assumptions.</p></a><a class="card feat" href="#calc"><h3>Investment calculator</h3><p>Rent, costs, mortgage and cash flow.</p></a><a class="card feat" href="#portfolio"><h3>Portfolio view</h3><p>Value, income and concentration at a glance.</p></a><a class="card feat" href="#auto"><h3>AI automation</h3><p>Enquiry to shortlist, analysis and reply.</p></a></div>
+<div class="cta"><h2>Your next Dubai investment starts with better data.</h2><a class="btn gold" href="#report">Get your investor report</a></div></div>
+</section>
+
+<section data-v="market"><div class="wrap">
+<h2>Where the opportunity sits</h2><p class="sub">Each bubble is an area. Left to right is price per sq ft, bottom to top is gross yield, size is transaction volume. Sample data.</p>
+<div class="split" style="grid-template-columns:1.5fr 1fr">
+<div class="card"><svg id="bub" viewBox="0 0 600 340" style="width:100%" role="img" aria-label="Areas by price and yield"></svg></div>
+<div class="card" id="mp"></div></div></div>
+</section>
+
+<section data-v="compare"><div class="wrap">
+<h2>Compare your investment options</h2><p class="sub">Choose up to three. Nothing is ranked: you weigh the trade-offs.</p>
+<div class="row" id="pick"></div><div class="card scroll"><table id="ct"></table></div>
+<div class="card" style="margin-top:14px"><h3 style="font-size:20px;margin-bottom:12px">Annual rent against expenses</h3><div id="cb"></div></div></div>
+</section>
+
+<section data-v="calc"><div class="wrap">
+<h2>Investment calculator</h2><p class="sub">Change any assumption and the result updates instantly.</p>
+<div class="row"><label>Purchase price (AED)<input type="number" id="price" value="1800000" min="0"></label>
+<label><b>Down payment: <span id="dpv">25</span>%</b><input type="range" id="dp" min="20" max="100" value="25"></label>
+<label><b>Interest rate: <span id="irv">4.5</span>%</b><input type="range" id="ir" min="2" max="8" step=".1" value="4.5"></label>
+<label>Term (years)<input type="number" id="yrs" value="25" min="1" max="30"></label></div>
+<div class="row"><label>Monthly rent<input type="number" id="rent" value="11000" min="0"></label><label>Service charges / yr<input type="number" id="svc" value="22000" min="0"></label>
+<label>Maintenance / yr<input type="number" id="mnt" value="6000" min="0"></label><label>Other / yr<input type="number" id="oth" value="4000" min="0"></label></div>
+<div class="split" style="grid-template-columns:1fr 1fr"><div class="grid" id="cr" style="grid-template-columns:1fr 1fr"></div>
+<div class="card" style="text-align:center"><h3 style="font-size:20px">Where the rent goes</h3><svg id="dn" viewBox="0 0 200 200" style="width:230px;max-width:100%"></svg><p id="dl"></p></div></div>
+<div class="card" style="margin-top:16px"><h3 style="font-size:20px;margin-bottom:4px">Stress test</h3><p class="sub" style="margin-bottom:14px">What happens if conditions turn against you?</p>
+<div class="row"><label><b>Rent falls: <span id="s1v">10</span>%</b><input type="range" id="s1" min="0" max="30" value="10"></label><label><b>Empty months a year: <span id="s2v">1</span></b><input type="range" id="s2" min="0" max="6" step=".5" value="1"></label><label><b>Rate rises: +<span id="s3v">1</span> pts</b><input type="range" id="s3" min="0" max="4" step=".25" value="1"></label><label><b>Costs rise: <span id="s4v">10</span>%</b><input type="range" id="s4" min="0" max="30" value="10"></label></div><div id="sr2"></div></div>
+<p class="note">Estimates only. Not financial advice and not a guarantee of returns. Excludes fees beyond 4% acquisition cost, vacancy and tax.</p></div>
+</section>
+
+<section data-v="report"><div class="wrap"><h2>Personalized investor report</h2><p class="sub">Tell us your goals and preview the research-style report Generate could prepare. Illustrative analysis from fictional data.</p>
+<div class="rgrid"><aside class="rside"><h3 style="font-size:22px;margin-bottom:6px">Inside your report</h3><ul><li>Investor profile and goals</li><li>Market snapshot for your area</li><li>Areas to research, ranked for your objective</li><li>Property shortlist with yields</li><li>Value and rent projection with stated assumptions</li><li>Cost breakdown and key risks</li></ul><p class="note" style="color:#8d99b0">Fictional demo data. Not financial advice.</p></aside>
+<form id="rf" class="card" novalidate><h3 class="fh">About you</h3><div class="row"><label>Full name<input id="rn" autocomplete="name" placeholder="e.g. Daniel Weber"><span class="err" id="e1"></span></label><label>Email<input id="re" type="email" autocomplete="email" placeholder="name@email.com"><span class="err" id="e2"></span></label><label>Country of residence<input id="rc" placeholder="e.g. Germany"><span class="err" id="e3"></span></label></div>
+<h3 class="fh">Your investment</h3><label style="margin-bottom:16px"><b>Budget: AED <span id="rbv">2,000,000</span></b><input type="range" id="rb" min="500000" max="5000000" step="100000" value="2000000"></label>
+<div class="row"><div class="seg" data-k="ro"><p>Objective</p><button type="button" class="on">Rental income</button><button type="button">Capital growth</button><button type="button">Balanced</button></div><div class="seg" data-k="rs"><p>Property status</p><button type="button" class="on">Ready</button><button type="button">Off-plan</button></div><div class="seg" data-k="rh"><p>Holding period</p><button type="button">3 years</button><button type="button" class="on">5 years</button><button type="button">10 years</button></div></div>
+<label style="margin-bottom:18px">Preferred area<select id="ra"></select></label><button class="btn gold" type="submit">Generate report preview</button></form></div><div id="ro2"></div></div></section>
+<section data-v="auto"><div class="wrap"><h2>AI investor automation</h2>
+<p class="sub">Paste an investor enquiry in plain words. The automation reads it, matches fictional properties, writes the analysis, scores the lead and drafts the reply. Illustrative only: AI output can be wrong and is not financial advice.</p>
+<div class="ag"><div class="card"><h3 class="fh">Investor enquiry</h3><div class="seg" id="presets" style="margin-bottom:14px"><p>Try an example</p><button type="button" data-p="0" class="on">Income investor</button><button type="button" data-p="1">Growth investor</button><button type="button" data-p="2">Vague enquiry</button></div>
+<label><textarea id="ab" rows="6"></textarea></label><div class="row" style="margin:14px 0 0;align-items:center"><button class="btn gold" id="ago">Run automation</button><span class="note" style="margin:0">Takes a few seconds. Nothing is sent.</span></div></div>
+<div class="card"><h3 class="fh">Automation pipeline</h3><div class="pipe" id="pipe" style="margin:0"></div></div></div><div id="aout"></div></div></section>
+<section data-v="explore"><div class="wrap"><h2>Discover investment opportunities</h2><p class="sub">Fictional demo listings, shown with illustrated scenes. <span id="sc"></span></p>
+<div class="row"><label>Area<select id="fa"><option value="-1">All areas</option></select></label><label><b>Max budget: AED <span id="fbv"></span></b><input type="range" id="fb" min="500000" max="4500000" step="100000" value="4500000"></label>
+<label><b>Min net yield: <span id="fyv">0</span>%</b><input type="range" id="fy" min="0" max="7" step=".5" value="0"></label><label>Sort<select id="fs"><option value="y">Highest net yield</option><option value="p">Lowest price</option><option value="s">Lowest AED per sq ft</option></select></label><label class="chk"><input type="checkbox" id="fsv">Saved only</label></div>
+<div class="grid" id="pl" style="grid-template-columns:repeat(auto-fill,minmax(250px,1fr))"></div></div></section>
+<section data-v="portfolio"><div class="wrap"><h2>Portfolio overview</h2><p class="sub">Sample holdings for illustration. Not a real investor account.</p><div class="grid" id="pk"></div>
+<div class="split" style="margin-top:16px;grid-template-columns:1.4fr 1fr"><div class="card"><h3 style="font-size:20px;margin-bottom:8px">Estimated value, last 12 months</h3><svg id="pg" viewBox="0 0 600 200" style="width:100%"></svg></div><div class="card"><h3 style="font-size:20px;margin-bottom:10px">Location exposure</h3><div id="pe"></div><p class="note" id="pi"></p></div></div>
+<div class="card scroll" style="margin-top:16px"><table id="pt"></table></div></div></section>
+<div id="cp" role="dialog" aria-modal="true" aria-label="Search"><div class="box"><input id="cq" placeholder="Search pages, areas and properties" autocomplete="off" aria-label="Search"><ul id="cl"></ul></div></div>
+<div id="dm" role="dialog" aria-modal="true" aria-label="Property details"><div class="box" id="db"></div></div>
+<footer><div class="fl"><a href="#home">Skyline</a><a href="#market">Market</a><a href="#explore">Explore</a><a href="#compare">Compare</a><a href="#calc">Calculator</a><a href="#portfolio">Portfolio</a><a href="#auto">AI automation</a><a href="#report">Report</a></div>Generate – Dubai Investment Intelligence · independent concept with fictional demo data.</footer>
+
+<script>
+var L=[{n:"Dubai Marina",p:2150,y:6.4,v:420,d:"Waterfront high-rises with deep rental demand."},{n:"Downtown Dubai",p:2900,y:5.6,v:310,d:"Prime core, premium pricing, lower yields."},
+{n:"Business Bay",p:2050,y:7.0,v:530,d:"Canal-side towers with a large supply pipeline."},{n:"Palm Jumeirah",p:3600,y:5.0,v:180,d:"Scarce beachfront stock, growth-led."},
+{n:"Dubai Hills Estate",p:2400,y:6.0,v:260,d:"Master-planned and family oriented."},{n:"Jumeirah Village Circle",p:1450,y:7.8,v:610,d:"Affordable entry, higher yield, more supply."}];
+var P=[{n:"Marina Heights 2BR",a:0,pr:2350000,sf:1180,r:150000,e:32000},{n:"Downtown Residence 1BR",a:1,pr:2100000,sf:760,r:112000,e:26000},{n:"Bay Square 2BR",a:2,pr:1900000,sf:1050,r:140000,e:30000},
+{n:"Palm Apartment 2BR",a:3,pr:4200000,sf:1500,r:190000,e:48000},{n:"Hills View 3BR",a:4,pr:3100000,sf:1900,r:185000,e:42000},{n:"JVC Garden 1BR",a:5,pr:820000,sf:740,r:66000,e:15000},
+{n:"Marina Quay 1BR",a:0,pr:1450000,sf:820,r:98000,e:23000},{n:"Bay Tower Studio",a:2,pr:790000,sf:430,r:62000,e:14000},{n:"Downtown Loft 2BR",a:1,pr:3300000,sf:1250,r:160000,e:36000},
+{n:"Hills Park 2BR",a:4,pr:2250000,sf:1250,r:132000,e:29000},{n:"Palm Studio",a:3,pr:1900000,sf:620,r:98000,e:25000},{n:"JVC Court 2BR",a:5,pr:1150000,sf:1090,r:88000,e:20000}];
+var $=function(i){return document.getElementById(i)},f=function(n){return Math.round(n).toLocaleString("en-US")},NS="http://www.w3.org/2000/svg";
+function ny(p){return(p.r-p.e)/p.pr*100}function pp(p){return p.pr/p.sf}
+function route(){var h=(location.hash||"#home").slice(1);if(!document.querySelector('[data-v="'+h+'"]'))h="home";
+document.querySelectorAll("section[data-v]").forEach(function(s){s.classList.toggle("show",s.dataset.v===h)});
+document.querySelectorAll("#nav a").forEach(function(a){a.classList.toggle("on",a.getAttribute("href")==="#"+h)});window.scrollTo(0,0)}
+addEventListener("hashchange",route);
+/* skyline */
+var met="p",sel=-1,ord=[0,1,2,3,4,5,6,7,8,9,10,11].sort(function(a,b){return P[a].a-P[b].a||a-b});
+var cols=["#6f86b3","#d9ac55","#8aa0c9","#c49a4a","#a6b6d6","#b88a3a"];
+var cur=[],tgt=[],raf=0,TW=[],AX=document.createElementNS?0:0;
+function el(t,at,par){var e=document.createElementNS(NS,t);for(var k in at)e.setAttribute(k,at[k]);if(par)par.appendChild(e);return e}
+function build(s){var raw=[56,48,68,52,60,46,64,70,50,58,54,62],gap=8,tot=raw.reduce(function(a,b){return a+b}),av=900-11*gap,x=0,d=el("defs",{},s);
+cols.forEach(function(c,i){var g=el("linearGradient",{id:"g"+i,x1:0,y1:0,x2:0,y2:1},d);el("stop",{offset:0,"stop-color":c},g);el("stop",{offset:1,"stop-color":"#13264a"},g)});
+[[.14,0],[.3,4]].forEach(function(q,i){var pt=el("pattern",{id:"w"+i,width:10,height:13,patternUnits:"userSpaceOnUse",x:q[1]},d);el("rect",{x:2,y:3,width:4,height:6,rx:1,fill:"#fff","fill-opacity":q[0]},pt)});
+var hz=el("radialGradient",{id:"hz",cx:.5,cy:1,r:.7},d);el("stop",{offset:0,"stop-color":"#d9ac55","stop-opacity":.28},hz);el("stop",{offset:1,"stop-color":"#d9ac55","stop-opacity":0},hz);
+var ov=el("linearGradient",{id:"ov",x1:0,y1:0,x2:0,y2:1},d);el("stop",{offset:0,"stop-color":"#0e1d3a","stop-opacity":.25},ov);el("stop",{offset:.7,"stop-color":"#0e1d3a","stop-opacity":1},ov);
+var w2=el("pattern",{id:"w2",width:30,height:39,patternUnits:"userSpaceOnUse"},d);el("rect",{x:12,y:16,width:4,height:6,rx:1,fill:"#f6d58d"},w2);el("rect",{x:2,y:29,width:4,height:6,rx:1,fill:"#f6d58d"},w2);
+el("rect",{x:0,y:170,width:900,height:130,fill:"url(#hz)"},s);
+for(var q=0,bx=0;bx<900;q++){var bw=18+(q*7)%16,bh=40+(q*53)%95;el("rect",{x:bx,y:300-bh,width:bw,height:bh,fill:"#14284f","fill-opacity":.7},s);bx+=bw+3+(q%3)*2}
+el("rect",{x:0,y:300,width:900,height:1,fill:"#2a3d66"},s);var grp={};
+ord.forEach(function(i,k){var w=raw[k]*av/tot,g=el("g",{"class":"tw","data-i":i},s),a=P[i].a;
+var t={i:i,k:k,x:x,w:w,type:k%3,body:el("rect",{x:x,width:w,fill:"url(#g"+a+")",rx:1},g),win:el("rect",{x:x,width:w,fill:"url(#w"+(k%2)+")"},g),lit:el("rect",{x:x,width:w,fill:"url(#w2)","class":"tl",style:"animation-delay:"+(k*.7)+"s"},g),cr:el("rect",{fill:cols[a]},g),rf:el("rect",{x:x,width:w,fill:cols[a],"fill-opacity":.15},s)};
+TW.push(t);(grp[a]=grp[a]||[]).push(x,x+w);x+=w+gap;
+g.onclick=g.onmouseenter=function(){sel=i;draw();det()}});
+el("rect",{x:0,y:301,width:900,height:80,fill:"url(#ov)"},s);Object.keys(grp).forEach(function(a){var v=grp[a],tx=el("text",{x:(Math.min.apply(0,v)+Math.max.apply(0,v))/2,y:324,"font-size":12,fill:"#8d99b0","text-anchor":"middle"},s);tx.textContent=L[a].n});
+el("text",{id:"vl",x:0,y:0,"font-size":15,"font-weight":700,fill:"#d9ac55","text-anchor":"middle"},s)}
+function draw(){TW.forEach(function(t){var h=cur[t.i],y=300-h,on=t.i===sel;t.body.setAttribute("y",y);t.body.setAttribute("height",h);t.win.setAttribute("y",y);t.win.setAttribute("height",h);t.lit.setAttribute("y",y);t.lit.setAttribute("height",h);t.rf.setAttribute("y",301);t.rf.setAttribute("height",Math.min(48,h*.2));t.body.style.filter=on?"drop-shadow(0 0 9px rgba(242,207,134,.55))":"none";
+t.body.setAttribute("stroke",on?"#f2cf86":"none");t.body.setAttribute("stroke-width",on?2:0);t.body.style.opacity=on?1:.86;
+var cx=t.x+t.w/2,c=t.cr;if(t.type===0){c.setAttribute("x",cx-1.5);c.setAttribute("width",3);c.setAttribute("y",y-26);c.setAttribute("height",26)}
+else if(t.type===1){c.setAttribute("x",t.x+t.w*.18);c.setAttribute("width",t.w*.64);c.setAttribute("y",y-14);c.setAttribute("height",14)}
+else{c.setAttribute("x",t.x+t.w*.3);c.setAttribute("width",t.w*.4);c.setAttribute("y",y-8);c.setAttribute("height",8)}
+if(on){var v=$("vl"),top=y-(t.type===0?26:t.type===1?14:8)-10;v.setAttribute("x",Math.min(840,Math.max(60,cx)));v.setAttribute("y",top);v.textContent=met==="p"?"AED "+f(pp(P[t.i])):ny(P[t.i]).toFixed(1)+"%"}})}
+function sk(){var s=$("sky");if(!s.firstChild)build(s);var vals=P.map(function(p){return met==="p"?pp(p):ny(p)}),mn=Math.min.apply(0,vals),mx=Math.max.apply(0,vals);
+tgt=vals.map(function(v){return 70+(v-mn)/(mx-mn||1)*185});if(!cur.length)cur=tgt.map(function(){return 0});
+cancelAnimationFrame(raf);var from=cur.slice(),t0=performance.now();(function st(n){var k=Math.min(1,(n-t0)/800),e=1-Math.pow(1-k,3);cur=from.map(function(a,i){return a+(tgt[i]-a)*e});draw();if(k<1)raf=requestAnimationFrame(st)})(t0)}
+function det(){var p=P[sel];$("in1").textContent=p.n;$("in2").textContent=L[p.a].n+" · "+f(p.sf)+" sq ft";$("i3").textContent="AED "+f(pp(p));$("i4").textContent=ny(p).toFixed(1)+"%";$("i5").textContent="AED "+f(p.pr)}
+$("tg").onclick=function(e){if(!e.target.dataset.m)return;met=e.target.dataset.m;this.querySelectorAll("button").forEach(function(b){b.classList.toggle("on",b===e.target)});sk()};
+/* market bubbles */
+var cu=0;
+function mk(){var s=$("bub"),h='<g stroke="var(--line)"><path d="M50 300H580M50 20V300"/></g><text x="315" y="332" font-size="12" fill="var(--mute)" text-anchor="middle">Price per sq ft (AED)</text><text x="14" y="160" font-size="12" fill="var(--mute)" transform="rotate(-90 14 160)" text-anchor="middle">Gross yield %</text>';
+L.forEach(function(l,i){var x=50+(l.p-1200)/2600*500,y=300-(l.y-4.5)/4*270,r=10+l.v/40;h+='<circle class="bub" data-i="'+i+'" cx="'+x+'" cy="'+y+'" r="'+r+'" fill="'+(i===cu?"var(--gold)":"#6f86b3")+'" fill-opacity=".8"><title>'+l.n+'</title></circle>'+(i===cu?'<text x="'+x+'" y="'+(y-r-6)+'" font-size="12" font-weight="700" fill="var(--ink)" text-anchor="middle">'+l.n+'</text>':'')});
+s.innerHTML=h;s.querySelectorAll(".bub").forEach(function(c){c.onclick=function(){cu=+c.dataset.i;mk()}});
+var l=L[cu],ps=P.filter(function(p){return p.a===cu});
+$("mp").innerHTML='<h3 style="font-size:24px">'+l.n+'</h3><p>'+l.d+'</p><p style="margin:14px 0 4px">Price / sq ft</p><div class="big">AED '+f(l.p)+'</div><p style="margin:10px 0 4px">Gross yield</p><div class="big">'+l.y+'%</div><p style="margin:10px 0 4px">Transactions / month</p><div class="big">'+l.v+'</div><p class="note">In this area, sample net yields range from '+Math.min.apply(0,ps.map(ny)).toFixed(1)+'% to '+Math.max.apply(0,ps.map(ny)).toFixed(1)+'%. The area average hides the spread.</p>'}
+/* compare */
+var cs=[0,2,4];
+function cp(){$("pick").innerHTML=P.map(function(p,i){return'<label class="chk"><input type="checkbox" data-i="'+i+'"'+(cs.indexOf(i)>-1?" checked":"")+'>'+p.n+'</label>'}).join("");
+document.querySelectorAll("#pick input").forEach(function(c){c.onchange=function(){var i=+c.dataset.i;if(c.checked){if(cs.length>=3){c.checked=false;return}cs.push(i)}else cs=cs.filter(function(x){return x!==i});cp()}});
+var S=cs.map(function(i){return P[i]}),R=[["Location",function(p){return L[p.a].n}],["Price (AED)",function(p){return f(p.pr)}],["Size (sq ft)",function(p){return f(p.sf)}],["Price / sq ft",function(p){return f(pp(p))}],["Annual rent",function(p){return f(p.r)}],["Annual expenses",function(p){return f(p.e)}],["Gross yield",function(p){return(p.r/p.pr*100).toFixed(1)+"%"}],["Net yield",function(p){return ny(p).toFixed(1)+"%"}],["Total cost (+4%)",function(p){return f(p.pr*1.04)}]];
+$("ct").innerHTML="<tr><th></th>"+S.map(function(p){return"<th>"+p.n+"</th>"}).join("")+"</tr>"+R.map(function(r){return"<tr><th>"+r[0]+"</th>"+S.map(function(p){return"<td>"+r[1](p)+"</td>"}).join("")+"</tr>"}).join("");
+var m=Math.max.apply(0,S.map(function(p){return p.r}).concat(1));
+$("cb").innerHTML=S.map(function(p){return'<p style="margin:0 0 4px;font-size:14px"><b>'+p.n+'</b></p><div class="bar" style="width:'+p.r/m*100+'%"></div><div class="bar n" style="width:'+p.e/m*100+'%"></div>'}).join("")+'<p class="note">Gold: rent. Grey: expenses. Yield is one lens; also weigh growth outlook, supply and liquidity.</p>'}
+/* calculator */
+function calc(){var pr=+$("price").value||0,dp=+$("dp").value,ir=+$("ir").value,y=Math.max(1,+$("yrs").value||1),rent=+$("rent").value||0,ex=(+$("svc").value||0)+(+$("mnt").value||0)+(+$("oth").value||0);
+$("dpv").textContent=dp;$("irv").textContent=ir;var ln=pr*(1-dp/100),r=ir/1200,n=y*12,pm=ln?(r?ln*r/(1-Math.pow(1+r,-n)):ln/n):0,inv=pr*dp/100+pr*.04,inc=rent*12,net=inc-ex,cf=net-pm*12;
+$("cr").innerHTML=[["Initial investment","AED "+f(inv)],["Annual rent","AED "+f(inc)],["Net rental income","AED "+f(net)],["Net yield",(pr?net/pr*100:0).toFixed(1)+"%"],["Annual cash flow","AED "+f(cf)],["Cash-on-cash",(inv?cf/inv*100:0).toFixed(1)+"%"]].map(function(x){return'<div class="card"><p>'+x[0]+'</p><div class="big" style="font-size:22px">'+x[1]+'</div></div>'}).join("");
+var seg=[["Expenses",ex,"#6f86b3"],["Mortgage",pm*12,"#08142b"],["Left over",Math.max(0,cf),"#d9ac55"]],tot=Math.max(inc,ex+pm*12,1),o=0,h="";
+seg.forEach(function(g){var l=g[1]/tot*377;h+='<circle cx="100" cy="100" r="60" fill="none" stroke="'+g[2]+'" stroke-width="26" stroke-dasharray="'+l+' 377" stroke-dashoffset="'+(-o)+'" transform="rotate(-90 100 100)"/>';o+=l});
+$("dn").innerHTML=h;$("dl").innerHTML=seg.map(function(g){return'<span style="color:'+g[2]+'">&#9679;</span> '+g[0]+' '+f(g[1])}).join("<br>")}
+document.querySelectorAll("#price,#dp,#ir,#yrs,#rent,#svc,#mnt,#oth").forEach(function(e){e.oninput=calc});
+/* report */
+$("ra").innerHTML=L.map(function(l){return"<option>"+l.n+"</option>"}).join("");
+$("rb").oninput=function(){$("rbv").textContent=f(+this.value)};
+document.querySelectorAll(".seg").forEach(function(g){g.onclick=function(e){if(e.target.tagName!=="BUTTON")return;g.querySelectorAll("button").forEach(function(x){x.classList.toggle("on",x===e.target)})}});
+function sg(k){return document.querySelector('.seg[data-k="'+k+'"] .on').textContent}
+function esc(t){return t.replace(/&/g,"&amp;").replace(/</g,"&lt;")}
+$("rf").onsubmit=function(e){e.preventDefault();var n=$("rn").value.trim(),m=$("re").value.trim(),c=$("rc").value.trim(),ok=true;
+function ck(id,t,msg){$(id).textContent=t?"":msg;if(!t)ok=false}
+ck("e1",n.length>1,"Enter your full name.");ck("e2",/^\S+@\S+\.\S+$/.test(m),"Enter a valid email address.");ck("e3",c.length>1,"Enter your country.");if(!ok)return;
+var b=+$("rb").value,ai=$("ra").selectedIndex,a=L[ai],ob=sg("ro"),stt=sg("rs"),yr=parseInt(sg("rh")),g=.02+G[ai]*.04,cy=a.y-1.3;
+var rk=L.map(function(l,i){return{i:i,s:ob==="Rental income"?l.y:ob==="Capital growth"?G[i]*10:l.y*.5+G[i]*5}}).sort(function(x,z){return z.s-x.s}).map(function(x){return x.i}).filter(function(i){return i!==ai});var ar=[ai].concat(rk.slice(0,2));
+var ps=P.map(function(p,i){return i}).filter(function(i){return P[i].pr<=b*1.05}).sort(function(x,z){return((P[x].a===ai?0:1)-(P[z].a===ai?0:1))*1e9+Math.abs(P[x].pr-b)-Math.abs(P[z].pr-b)}).slice(0,3);
+var ev=b*Math.pow(1+g,yr),cr=b*cy/100*yr,mx=ev+cr,xs=function(y){return 44+y*(500/yr)},ys=function(v){return 170-v/mx*140},ln1=[],ln2=[];
+for(var y=0;y<=yr;y++){var v=b*Math.pow(1+g,y);ln1.push(xs(y)+","+ys(v));ln2.push(xs(y)+","+ys(v+b*cy/100*y))}
+var ch='<svg viewBox="0 0 580 200" style="width:100%" role="img" aria-label="Projected value and cumulative rent"><path d="M44 170H544M44 30V170" stroke="#d8d3c4"/><polyline fill="none" stroke="#b8862f" stroke-width="3" points="'+ln2.join(" ")+'"/><polyline fill="none" stroke="#0b1730" stroke-width="3" points="'+ln1.join(" ")+'"/><text x="44" y="190" font-size="11" fill="#5d677c">Today</text><text x="544" y="190" font-size="11" fill="#5d677c" text-anchor="end">Year '+yr+'</text><text x="540" y="'+(ys(ev+cr)-8)+'" font-size="11" fill="#b8862f" text-anchor="end">Value + rent</text><text x="540" y="'+(ys(ev)+16)+'" font-size="11" fill="#0b1730" text-anchor="end">Value only</text></svg>';
+var fe=b*.04,ac=b*.013,cm=Math.max(b,1),bar=function(l,v,col){return'<p style="margin:8px 0 3px;font-size:14px">'+l+' <b>AED '+f(v)+'</b></p><div style="height:9px;border-radius:5px;background:'+col+';width:'+Math.max(2,v/cm*100)+'%"></div>'};
+var risks=[a.d+" Review local supply and the off-plan pipeline.","Service charges and maintenance can change over time.","Vacancy and rent resets can lower income below projections.","Your home currency can move against the AED."];if(stt==="Off-plan")risks.push("Off-plan: delivery dates and payment plans carry extra risk.");
+var td=function(k,v){return"<tr><th>"+k+"</th><td>"+v+"</td></tr>"};
+$("ro2").innerHTML='<div class="paper" id="rep"><div class="pc"><svg viewBox="0 0 48 48" width="40" height="40" style="color:#fff"><path d="M38.55 11.79A19 19 0 1 0 43 24" fill="none" stroke="#d9ac55" stroke-width="3.6" stroke-linecap="round"/><rect x="15" y="22" width="5.5" height="11" fill="currentColor" opacity=".75"/><rect x="22.5" y="12" width="5.5" height="21" fill="#d9ac55"/><rect x="30" y="18" width="5.5" height="15" fill="currentColor" opacity=".75"/></svg><p style="margin:10px 0 0"><span>GENERATE \u00b7 DUBAI INVESTMENT INTELLIGENCE</span></p><h3>Investor report</h3><p style="margin:0;color:#c9d0de;font-size:17px">Prepared for '+esc(n)+', '+esc(c)+'</p><p style="margin:10px 0 0;color:#8d99b0;font-size:13px">'+new Date().toLocaleDateString("en-GB",{day:"numeric",month:"long",year:"numeric"})+' \u00b7 Sample report with illustrative analysis</p></div>'+
+'<div class="pb"><h4>Investor profile</h4><table>'+td("Budget","AED "+f(b))+td("Objective",ob)+td("Property status",stt)+td("Holding period",yr+" years")+td("Focus area",a.n)+td("Contact",esc(m))+'</table>'+
+'<h4>Market snapshot: '+a.n+'</h4><div class="kp"><div><small>Price per sq ft</small><b>AED '+f(a.p)+'</b></div><div><small>Gross yield (sample)</small><b>'+a.y+'%</b></div><div><small>Transactions per month</small><b>'+a.v+'</b></div></div>'+
+'<h4>Areas to research</h4><p>'+ar.map(function(i){return'<span class="chip">'+L[i].n+'</span>'}).join("")+'</p><p style="margin-top:4px">Ranked for a "'+ob.toLowerCase()+'" objective. '+L[ar[1]].n+' and '+L[ar[2]].n+' are alternatives worth comparing.</p>'+
+'<h4>Property shortlist</h4>'+(ps.length?'<div class="sl">'+ps.map(function(i){var q=P[i];return'<div>'+art(q.a,i)+'<p><b>'+q.n+'</b><br>'+L[q.a].n+'<br>AED '+f(q.pr)+' \u00b7 '+ny(q).toFixed(1)+'% net yield</p></div>'}).join("")+'</div>':'<p>No listings fit this budget. Increase it to see options.</p>')+
+'<h4>Projection over '+yr+' years</h4>'+ch+'<p>Assumes '+(g*100).toFixed(1)+'% yearly appreciation and a '+cy.toFixed(1)+'% net rental yield. After '+yr+' years: value about AED '+f(ev)+' plus about AED '+f(cr)+' in net rent, before tax, financing and vacancy.</p>'+
+'<h4>Cost breakdown</h4>'+bar("Purchase budget",b,"#0b1730")+bar("Acquisition costs (assumed 4%)",fe,"#b8862f")+bar("Annual running costs (assumed 1.3%)",ac,"#8d99b0")+
+'<h4>Key risks and considerations</h4><ul>'+risks.map(function(r){return"<li>"+r+"</li>"}).join("")+'</ul><h4>Summary</h4><p id="aisum">Based on a '+ob.toLowerCase()+' objective and a budget of AED '+f(b)+', '+a.n+' and the areas above are a sensible place to begin research. Compare individual properties, not just areas.</p>'+
+'<p class="note">Illustrative only. All data is fictional. Not financial advice and not a guarantee of returns.</p></div></div>'+
+'<div class="np" style="text-align:center;display:flex;gap:10px;justify-content:center;flex-wrap:wrap"><button class="btn gold" onclick="window.print()">Save as PDF</button><button class="btn out2" id="aiw">Write summary with AI</button></div>';
+$("aiw").onclick=async function(){var s2=await getAI(),o=$("aisum");if(!s2){o.textContent="AI summaries are available when this page is opened in claude.ai.";return}o.textContent="Writing\u2026";
+try{var r=await s2("Write a 70-word executive summary for an investor report. Use ONLY these fictional facts, neutral tone, no promises: investor "+n+" from "+c+", budget AED "+b+", objective "+ob+", "+yr+"-year hold, focus "+a.n+", other areas "+L[ar[1]].n+" and "+L[ar[2]].n+", assumed net yield "+cy.toFixed(1)+"%, assumed appreciation "+(g*100).toFixed(1)+"%.",{onText:function(x){o.textContent=x.text}});o.textContent=r.text}catch(er){o.textContent="AI is unavailable right now."}};
+$("ro2").scrollIntoView({behavior:"smooth"})};
+
+var AI=null;function getAI(){return AI||(AI=(window.claude&&claude.use?claude.use("sample"):Promise.resolve(null)))}
+function pj(t){var m=String(t).match(/\{[\s\S]*\}/);return m?JSON.parse(m[0]):null}
+$("ask").onclick=async function(){var a=await getAI(),o=$("ans");if(!a){o.textContent="The AI analyst is available when this page is opened in claude.ai.";return}
+var p=P[sel],l=L[p.a];o.textContent="Analyzing\u2026";
+try{var r=await a("You are an analyst for a Dubai real estate advisory. Using ONLY these fictional figures, write 3 short sentences: one strength, one risk, one question the investor should ask. No guarantees, no advice to buy.\nProperty: "+p.n+", "+l.n+", price AED "+p.pr+", "+p.sf+" sq ft, AED "+Math.round(pp(p))+"/sq ft, net yield "+ny(p).toFixed(1)+"%, area average gross yield "+l.y+"%.",{onText:function(x){o.textContent=x.text}});o.textContent=r.text}
+catch(e){o.textContent="AI is unavailable right now ("+(e&&e.code||"error")+")."}};
+var DESC=["Finds budget, goals and areas","Filters the property database","Writes a short briefing","Rates how ready the lead is","Prepares a warm reply"],PRS=["Hi, I\u2019m Daniel from Germany. I have around 2 million AED to invest and want steady rental income, ideally around Business Bay or the Marina. I\u2019d hold for 5+ years and prefer ready properties.","Hello, I\u2019m Aisha in the UK. Budget about 900,000 AED. I care more about long-term growth than rent and would hold for 10 years. Jumeirah Village Circle or Dubai Hills look interesting, and I\u2019m open to off-plan.","Hi, thinking about investing in Dubai at some point. Not sure about budget or area yet. What do you suggest?"];
+var ST=["Read the enquiry","Match properties","Write the analysis","Score the lead","Draft the reply email"];
+function pipe(st,msg){$("pipe").innerHTML=ST.map(function(t,i){var c=st[i]||"";return'<div class="ps '+c+'"><div class="dot"></div><div><b>'+t+'</b><span>'+((msg||{})[i]||DESC[i])+'</span></div></div>'}).join("")}
+$("ago").onclick=async function(){var a=await getAI(),st=[],ms={},out=$("aout");out.innerHTML="";pipe(st);
+if(!a){ms[0]="AI runs when this page is opened in claude.ai.";st[0]="fail";pipe(st,ms);return}
+function go(i,m){st[i]="run";if(m)ms[i]=m;pipe(st,ms)}function ok(i,m){st[i]="done";ms[i]=m;pipe(st,ms)}
+try{go(0,"Extracting budget, goals and area\u2026");
+var pr=pj((await a("Extract from this investor enquiry. Reply with ONLY JSON: {\"name\":string,\"country\":string,\"budget_aed\":number,\"objective\":\"income\"|\"growth\"|\"balanced\",\"areas\":[strings from "+L.map(function(l){return l.n}).join(", ")+"],\"horizon_years\":number|null}.\nEnquiry: "+$("ab").value.slice(0,1500))).text);
+if(!pr)throw{code:"parse"};ok(0,(pr.name||"Investor")+" · "+(pr.country||"?")+" · AED "+f(pr.budget_aed||0)+" · "+pr.objective);
+go(1,"Filtering the fictional property database\u2026");var ar=(pr.areas||[]).map(function(x){return x.toLowerCase()}),bd=+pr.budget_aed||2e6;
+var sl=P.filter(function(p){return p.pr<=bd*1.05}).sort(function(x,y){var ax=ar.indexOf(L[x.a].n.toLowerCase())>-1?1:0,ay=ar.indexOf(L[y.a].n.toLowerCase())>-1?1:0;return ay-ax||(pr.objective==="growth"?pp(y)-pp(x):ny(y)-ny(x))}).slice(0,3);
+ok(1,sl.map(function(p){return p.n}).join(", ")||"No match within budget");
+var data=sl.map(function(p){return p.n+" ("+L[p.a].n+"): AED "+p.pr+", net yield "+ny(p).toFixed(1)+"%, AED "+Math.round(pp(p))+"/sq ft"}).join("\n");
+go(2,"Writing the analysis\u2026");var an=await a("Write a 110-word investor briefing for "+pr.name+" (objective: "+pr.objective+"). Use ONLY this fictional data, mention one risk per property, no guarantees, plain text:\n"+data,{onText:function(x){out.innerHTML='<div class="card"><h3 style="font-size:20px;margin-bottom:8px">Analysis</h3><p class="out" id="o1"></p></div>';$("o1").textContent=x.text}});
+ok(2,"Briefing ready");
+go(3,"Scoring fit and urgency\u2026");var sc=pj((await a("Score this lead 0-100 for how ready they are to receive a tailored report (budget clarity, goal clarity, timeline). ONLY JSON {\"score\":number,\"reason\":string under 20 words}.\nEnquiry: "+$("ab").value.slice(0,1500))).text)||{score:0,reason:""};ok(3,sc.score+"/100");
+go(4,"Drafting the reply\u2026");var em=await a("Write a warm, concise reply email (under 110 words) from the Generate team to "+pr.name+", thanking them, summarizing the shortlist below as areas to research, and offering a personalized investor report. No promises of returns. Sign off 'The Generate team'.\n"+data);ok(4,"Draft ready");
+var ix=sl.map(function(q){return P.indexOf(q)}),tier=sc.score>=70?"Hot lead":sc.score>=40?"Warm lead":"Early enquiry",tc=sc.score>=70?"var(--pos)":sc.score>=40?"var(--gold)":"var(--mute)";
+out.innerHTML='<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(250px,1fr));margin-top:20px"><div class="card" style="text-align:center"><p>Lead score</p><svg viewBox="0 0 90 90" width="130" height="130"><circle cx="45" cy="45" r="34" fill="none" stroke="var(--line)" stroke-width="9"/><circle cx="45" cy="45" r="34" fill="none" stroke="'+tc+'" stroke-width="9" stroke-linecap="round" stroke-dasharray="'+(sc.score/100*213.6)+' 214" transform="rotate(-90 45 45)"/><text x="45" y="51" text-anchor="middle" font-size="22" font-weight="700" fill="var(--ink)">'+Math.round(sc.score)+'</text></svg><div><b style="color:'+tc+'">'+tier+'</b></div><p id="sr"></p></div><div class="card"><p>Extracted profile</p><div id="chp" style="margin-top:8px"></div></div><div class="card"><p>Next steps</p><div class="row" style="margin:12px 0 0;gap:8px"><button class="btn gold sm" id="mr">Create investor report</button><button class="btn out2 sm" id="cr">Copy reply</button></div><p class="note">Fills the report form from this enquiry. Nothing is sent.</p></div></div>'+
+'<h3 style="font-size:22px;margin:26px 0 12px">Matched properties</h3>'+(ix.length?'<div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(240px,1fr))">'+ix.map(function(i){var q=P[i];return'<div class="card pc2">'+art(q.a,i)+'<div class="bd"><h3>'+q.n+'</h3><p>'+L[q.a].n+'</p><div class="mt"><span><b>AED '+f(q.pr)+'</b></span><span><b>'+ny(q).toFixed(1)+'%</b> net yield</span></div></div></div>'}).join("")+'</div>':'<p class="sub">No fictional listings fit this budget yet.</p>')+
+'<div class="split" style="margin-top:18px;grid-template-columns:1fr 1fr"><div class="card"><h3 style="font-size:20px;margin-bottom:8px">Analysis</h3><p class="out" id="o1"></p></div><div class="card"><h3 style="font-size:20px;margin-bottom:8px">Draft reply (review before sending)</h3><p class="out" id="o2"></p></div></div>';
+$("sr").textContent=sc.reason;$("o1").textContent=an.text;$("o2").textContent=em.text;
+[pr.name,pr.country,pr.budget_aed?"AED "+f(pr.budget_aed):null,pr.objective,(pr.areas||[]).join(", "),pr.horizon_years?pr.horizon_years+" years":null].forEach(function(t){if(t){var c=document.createElement("span");c.className="chp";c.textContent=t;$("chp").appendChild(c)}});
+$("cr").onclick=async function(){try{await navigator.clipboard.writeText(em.text);this.textContent="Copied"}catch(x){this.textContent="Select the text to copy"}};
+$("mr").onclick=function(){$("rn").value=pr.name||"";$("rc").value=pr.country||"";var bv=Math.min(5e6,Math.max(5e5,Math.round((+pr.budget_aed||2e6)/1e5)*1e5));$("rb").value=bv;$("rbv").textContent=f(bv);
+var ai=L.findIndex(function(l){return(pr.areas||[]).indexOf(l.n)>-1});$("ra").selectedIndex=Math.max(0,ai);
+function ss(k,t){document.querySelectorAll('.seg[data-k="'+k+'"] button').forEach(function(x){x.classList.toggle("on",x.textContent===t)})}
+ss("ro",pr.objective==="growth"?"Capital growth":pr.objective==="balanced"?"Balanced":"Rental income");var h=+pr.horizon_years||5;ss("rh",h<=3?"3 years":h>=10?"10 years":"5 years");location.hash="report"}}
+catch(e){var i=st.indexOf("run");if(i>-1){st[i]="fail";ms[i]=e&&e.code==="not_granted"?"AI access was declined.":"This step failed. Try again."}pipe(st,ms)}};
+
+var SV=[];try{SV=JSON.parse(localStorage.getItem("gsv")||"[]")}catch(e){}
+var SN=0,SKY=[["#1b2f66","#f0a35e"],["#0a1330","#2a3f7a"],["#12385a","#e8b36a"],["#2a2a5c","#ffb26b"],["#1f4f7a","#f2c98a"],["#2c4a73","#f6d8a8"]];
+function art(a,i){var n=++SN,S=SKY[a],land=a>3,o='<svg viewBox="0 0 320 180" style="display:block;width:100%;aspect-ratio:16/9" aria-hidden="true"><defs><linearGradient id="k'+n+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="'+S[0]+'"/><stop offset="1" stop-color="'+S[1]+'"/></linearGradient><linearGradient id="t'+n+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="'+cols[a]+'"/><stop offset="1" stop-color="#14264a"/></linearGradient><linearGradient id="s'+n+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="'+(land?"#2f6b4f":"#1a4a7a")+'"/><stop offset="1" stop-color="'+(land?"#173a2c":"#0b2142")+'"/></linearGradient><pattern id="p'+n+'" width="8" height="11" patternUnits="userSpaceOnUse"><rect x="2" y="3" width="3" height="5" fill="#ffe7a8" fill-opacity=".6"/></pattern></defs><rect width="320" height="180" fill="url(#k'+n+')"/><circle cx="'+(a===1?248:70+(i*43)%180)+'" cy="46" r="'+(a===1?13:17)+'" fill="'+(a===1?"#e8eefb":"#fff3cf")+'" fill-opacity=".92"/>';
+for(var x=0;x<320;x+=14){var fh=20+(x*7+i*5)%40;o+='<rect x="'+x+'" y="'+(140-fh)+'" width="12" height="'+fh+'" fill="#0f2247" fill-opacity=".55"/>'}
+[[26,38],[78,46],[134,36],[182,48],[240,40],[282,26]].forEach(function(t,k){var h=(a===5?34:a===4?52:58)+((i*37+k*29+a*11)%(a===5?30:60)),y=140-h;
+o+='<rect x="'+t[0]+'" y="'+y+'" width="'+t[1]+'" height="'+h+'" fill="url(#t'+n+')"/><rect x="'+t[0]+'" y="'+y+'" width="'+t[1]+'" height="'+h+'" fill="url(#p'+n+')"/>'+(k%2?'<rect x="'+(t[0]+t[1]*.2)+'" y="'+(y-9)+'" width="'+t[1]*.6+'" height="9" fill="'+cols[a]+'"/>':'<rect x="'+(t[0]+t[1]/2-1)+'" y="'+(y-18)+'" width="2" height="18" fill="'+cols[a]+'"/>')});
+if(a===4)o+='<path d="M0 150Q60 116 130 142T260 134T320 146V180H0Z" fill="#2c6a4b"/>';
+o+='<rect y="140" width="320" height="40" fill="url(#s'+n+')"/>';
+if(!land)for(var r=0;r<4;r++)o+='<rect x="'+(40+r*60+(i*13)%30)+'" y="'+(148+r*8)+'" width="'+(70-r*10)+'" height="1.6" fill="#fff" fill-opacity=".16"/>';
+if(a===3)o+='<path d="M40 160Q44 128 52 106M278 160Q274 132 266 110" stroke="#4a3320" stroke-width="3.2" fill="none"/><path d="M52 106q-18-4-26 8M52 106q-14-12-30-6M52 106q4-16 20-18M52 106q16-6 28 6M266 110q-18-4-26 8M266 110q-14-12-30-6M266 110q4-16 20-18M266 110q16-6 28 6" stroke="#2b7448" stroke-width="2.6" fill="none" stroke-linecap="round"/>';
+return o+'</svg>'}
+function sv(i){var k=SV.indexOf(i);k>-1?SV.splice(k,1):SV.push(i);try{localStorage.setItem("gsv",JSON.stringify(SV))}catch(e){}ex();if($("dm").classList.contains("open"))dt(i)}
+function ex(){var a=+$("fa").value,b=+$("fb").value,y=+$("fy").value,o=$("fs").value;$("fbv").textContent=f(b);$("fyv").textContent=y;
+var l=P.map(function(p,i){return i}).filter(function(i){var p=P[i];return(a<0||p.a===a)&&p.pr<=b&&ny(p)>=y&&(!$("fsv").checked||SV.indexOf(i)>-1)}).sort(function(x,z){return o==="y"?ny(P[z])-ny(P[x]):o==="p"?P[x].pr-P[z].pr:pp(P[x])-pp(P[z])});
+$("sc").textContent=SV.length+" saved.";
+$("pl").innerHTML=l.length?l.map(function(i){var p=P[i];return'<div class="card pc2">'+art(p.a,i)+'<div class="bd"><h3>'+p.n+'</h3><p>'+L[p.a].n+'</p><div class="big" style="font-size:22px">AED '+f(p.pr)+'</div><div class="mt"><span><b>'+ny(p).toFixed(1)+'%</b> net yield</span><span><b>'+f(p.sf)+'</b> sq ft</span></div><div class="row" style="margin:6px 0 0;gap:8px"><button class="btn gold sm" data-d="'+i+'">View details</button><button class="btn out2 sm'+(SV.indexOf(i)>-1?" on":"")+'" data-s="'+i+'">'+(SV.indexOf(i)>-1?"Saved":"Save")+'</button></div></div></div>'}).join(""):'<p class="sub">No properties match these filters. Raise the budget or lower the minimum yield.</p>';
+document.querySelectorAll("[data-d]").forEach(function(b){b.onclick=function(){dt(+b.dataset.d)}});document.querySelectorAll("[data-s]").forEach(function(b){b.onclick=function(){sv(+b.dataset.s)}})}
+function dt(i){var p=P[i],l=L[p.a];$("db").innerHTML=art(p.a,i)+'<div class="bd"><h3 style="font-size:26px">'+p.n+'</h3><p style="margin:0 0 14px;color:var(--mute)">'+l.n+' \u00b7 '+f(p.sf)+' sq ft \u00b7 fictional listing</p><div class="grid" style="grid-template-columns:1fr 1fr 1fr"><div class="card"><p>Price</p><b>AED '+f(p.pr)+'</b></div><div class="card"><p>Est. rent / yr</p><b>AED '+f(p.r)+'</b></div><div class="card"><p>Est. costs / yr</p><b>AED '+f(p.e)+'</b></div><div class="card"><p>Net yield</p><b>'+ny(p).toFixed(1)+'%</b></div><div class="card"><p>Per sq ft</p><b>AED '+f(pp(p))+'</b></div><div class="card"><p>Area avg. yield</p><b>'+l.y+'%</b></div></div>'+radar(i)+'<p style="margin:14px 0 0"><b>Consider:</b> '+l.d+' Check supply, service charges and vacancy before deciding.</p><div class="row" style="margin:16px 0 0;gap:8px"><button class="btn out2 sm'+(SV.indexOf(i)>-1?" on":"")+'" id="ds">'+(SV.indexOf(i)>-1?"Saved":"Save property")+'</button><button class="btn gold sm" id="dc">Add to compare</button><button class="btn out2 sm" id="dx">Close</button></div></div>';
+$("dm").classList.add("open");$("ds").onclick=function(){sv(i)};$("dx").onclick=cl;$("dc").onclick=function(){if(cs.indexOf(i)<0){if(cs.length>=3)cs.shift();cs.push(i)}cp();cl();location.hash="compare"}}
+function cl(){$("dm").classList.remove("open")}$("dm").onclick=function(e){if(e.target===this)cl()};addEventListener("keydown",function(e){if(e.key==="Escape")cl()});
+$("fa").innerHTML+=L.map(function(l,i){return'<option value="'+i+'">'+l.n+'</option>'}).join("");["fa","fb","fy","fs","fsv"].forEach(function(id){$(id).oninput=ex});
+var H=[{n:"Marina Quay 1BR",a:0,buy:1320000,d:"Mar 2023",val:1450000,r:98000,e:23000},{n:"JVC Court 2BR",a:5,buy:980000,d:"Aug 2022",val:1150000,r:88000,e:20000},{n:"Hills Park 2BR",a:4,buy:1950000,d:"Jan 2024",val:2250000,r:132000,e:29000}];
+function pf(){var tv=0,ti=0,tn=0;H.forEach(function(h){tv+=h.val;ti+=h.buy;tn+=h.r-h.e});
+$("pk").innerHTML=[["Estimated value","AED "+f(tv)],["Total invested","AED "+f(ti)],["Net rent / yr","AED "+f(tn)],["Net yield",(tn/tv*100).toFixed(1)+"%"],["Value change","+"+((tv/ti-1)*100).toFixed(1)+"%"]].map(function(k){return'<div class="card"><p>'+k[0]+'</p><div class="big" style="font-size:22px">'+k[1]+'</div></div>'}).join("");
+var pts=[];for(var m=0;m<12;m++){var v=ti+(tv-ti)*(m/11)+Math.sin(m*1.3)*ti*.012;pts.push([30+m*49,170-(v-ti*.95)/(tv*1.02-ti*.95)*140])}
+$("pg").innerHTML='<polyline fill="none" stroke="#d9ac55" stroke-width="3" points="'+pts.map(function(q){return q.join(",")}).join(" ")+'"/>'+pts.map(function(q){return'<circle cx="'+q[0]+'" cy="'+q[1]+'" r="3.5" fill="#d9ac55"/>'}).join("");
+$("pe").innerHTML=H.map(function(h){var w=h.val/tv*100;return'<p style="margin:0 0 4px;font-size:14px">'+L[h.a].n+' <b>'+w.toFixed(0)+'%</b></p><div class="bar" style="width:'+w+'%"></div>'}).join("");
+var top=H.slice().sort(function(a,b){return b.val-a.val})[0];$("pi").textContent="Largest position: "+top.n+" ("+(top.val/tv*100).toFixed(0)+"% of value). Three areas give some spread; concentration in one asset still matters.";
+$("pt").innerHTML="<tr><th>Property</th><th>Bought</th><th>Paid</th><th>Est. value</th><th>Net rent / yr</th><th>Change</th></tr>"+H.map(function(h){return"<tr><td>"+h.n+"</td><td>"+h.d+"</td><td>"+f(h.buy)+"</td><td>"+f(h.val)+"</td><td>"+f(h.r-h.e)+'</td><td class="pos" style="color:var(--pos)">+'+((h.val/h.buy-1)*100).toFixed(1)+"%</td></tr>"}).join("")}
+ex();pf();
+
+var G=[.6,.7,.55,.75,.65,.4],SU=[.55,.8,.3,.7,.6,.3];
+function radar(i){var p=P[i],a=p.a,c=function(v){return Math.max(.08,Math.min(1,v))},v=[c(ny(p)/7),c(1-(pp(p)-1200)/2800),G[a],c(L[a].v/600),SU[a]],n=["Net yield","Value per sq ft","Growth outlook","Liquidity","Supply comfort"],h="";
+function pt(k,r){var an=(-90+72*k)*Math.PI/180;return[100+70*r*Math.cos(an),100+70*r*Math.sin(an)]}
+[.33,.66,1].forEach(function(r){h+='<polygon points="'+[0,1,2,3,4].map(function(k){return pt(k,r).join(",")}).join(" ")+'" fill="none" stroke="var(--line)"/>'});
+h+='<polygon points="'+v.map(function(x,k){return pt(k,x).join(",")}).join(" ")+'" fill="#d9ac55" fill-opacity=".3" stroke="#d9ac55" stroke-width="2"/>';
+n.forEach(function(t,k){var q=pt(k,1.3);h+='<text x="'+q[0]+'" y="'+(q[1]+4)+'" font-size="11" fill="var(--mute)" text-anchor="'+(q[0]<80?"end":q[0]>120?"start":"middle")+'">'+t+'</text>'});
+return'<div style="margin-top:14px"><b>Property DNA</b> <span style="color:var(--mute);font-size:13px">illustrative scores</span><svg viewBox="-30 8 260 190" style="width:100%;max-width:360px;display:block;margin:0 auto" role="img" aria-label="Radar chart of five investment traits">'+h+'</svg></div>'}
+function mp(ln,r,y){var m=r/1200,n=y*12;return ln?(m?ln*m/(1-Math.pow(1+m,-n)):ln/n):0}
+function st(){var pr=+$("price").value||0,dp=+$("dp").value/100,ir=+$("ir").value,y=Math.max(1,+$("yrs").value||1),rent=+$("rent").value||0,ex=(+$("svc").value||0)+(+$("mnt").value||0)+(+$("oth").value||0),g=function(k){var e=$("s"+k);$("s"+k+"v").textContent=e.value;return+e.value};
+var a=g(1),b=g(2),c=g(3),d=g(4),ln=pr*(1-dp),base=rent*12-ex-mp(ln,ir,y)*12,sc=rent*(1-a/100)*(12-b)-ex*(1+d/100)-mp(ln,ir+c,y)*12,mx=Math.max(Math.abs(base),Math.abs(sc),1);
+function tk(v,l){return'<p style="margin:0;font-size:14px">'+l+' <b>AED '+f(v)+'</b></p><div class="trk"><u></u><i style="'+(v<0?"right:50%;background:#c0392b":"left:50%;background:var(--gold)")+';width:'+Math.abs(v)/mx*50+'%"></i></div>'}
+$("sr2").innerHTML=tk(base,"Annual cash flow today")+tk(sc,"Annual cash flow under stress")+'<p style="margin:0"><b>'+(sc>=0?"Still cash-positive after the shock.":"Cash-negative by AED "+f(-sc)+" a year.")+'</b> '+(sc>=0?"Cash flow falls by AED "+f(base-sc)+" a year.":"You would need reserves or a longer holding period to absorb it.")+'</p>'}
+var _c=calc;calc=function(){_c();st()};document.querySelectorAll("#price,#dp,#ir,#yrs,#rent,#svc,#mnt,#oth,#s1,#s2,#s3,#s4").forEach(function(e){e.oninput=calc});
+var CI=[],cx=0;
+function items(){var a=[["Skyline","home"],["Market intelligence","market"],["Explore properties","explore"],["Compare investments","compare"],["Investment calculator","calc"],["Portfolio","portfolio"],["AI automation","auto"],["Investor report","report"]].map(function(x){return{t:x[0],k:"Page",go:function(){location.hash=x[1]}}});
+L.forEach(function(l,i){a.push({t:l.n,k:"Area",go:function(){cu=i;mk();location.hash="market"}})});P.forEach(function(p,i){a.push({t:p.n,k:L[p.a].n,go:function(){dt(i)}})});return a}
+function rc(){var q=$("cq").value.toLowerCase();CI=items().filter(function(x){return(x.t+" "+x.k).toLowerCase().indexOf(q)>-1}).slice(0,9);cx=Math.min(cx,Math.max(0,CI.length-1));
+$("cl").innerHTML=CI.length?CI.map(function(x,i){return'<li data-i="'+i+'" class="'+(i===cx?"on":"")+'">'+x.t+'<small>'+x.k+'</small></li>'}).join(""):'<li>No results. Try an area or property name.</li>';
+document.querySelectorAll("#cl li[data-i]").forEach(function(li){li.onclick=function(){go(+li.dataset.i)}})}
+function go(i){$("cp").classList.remove("open");CI[i]&&CI[i].go()}
+function op(){$("cp").classList.add("open");$("cq").value="";cx=0;rc();$("cq").focus()}
+$("sb").onclick=op;$("cq").oninput=function(){cx=0;rc()};$("cp").onclick=function(e){if(e.target===this)this.classList.remove("open")};
+$("kb").textContent=/Mac|iPhone|iPad/.test(navigator.platform)?"\u2318K":"Ctrl K";
+addEventListener("keydown",function(e){var o=$("cp").classList.contains("open");if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==="k"){e.preventDefault();o?$("cp").classList.remove("open"):op();return}
+if(!o)return;if(e.key==="Escape")$("cp").classList.remove("open");else if(e.key==="ArrowDown"){e.preventDefault();cx=Math.min(CI.length-1,cx+1);rc()}else if(e.key==="ArrowUp"){e.preventDefault();cx=Math.max(0,cx-1);rc()}else if(e.key==="Enter"){e.preventDefault();go(cx)}});
+st();
+$("ab").value=PRS[0];document.querySelectorAll("#presets button").forEach(function(b){b.onclick=function(){$("ab").value=PRS[+b.dataset.p]}});pipe([]);
+sel=2;sk();det();mk();cp();calc();route();
+</script>
+</body>
+</html>
